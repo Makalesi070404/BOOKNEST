@@ -33,8 +33,8 @@ Initialize the project:
 npm init -y && npm pkg set type=module
 
 # Setup
-MONGO uri = mongodb+srv://makalesi_tuiloma:Onz_bareki070404@cluster0.lsj1boa.mongodb.net/?appName=Cluster0
-PORT = 5000
+MONGO_URI=your_mongodb_atlas_connection_string
+PORT=5000
 
 # Running the App
 node --watch server ||  If successful, you’ll see: You successfully connected to MongoDB!
