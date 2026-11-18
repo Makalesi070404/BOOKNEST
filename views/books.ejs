@@ -1,0 +1,25 @@
+<%- include ('partials/head') %>
+<body>
+    <%- include ('partials/nav') %>
+    <br>
+
+    <main>
+        <h1><%= title %></h1>
+        <br>
+
+        <div class="book-list">
+            <% books.forEach(book => { %>
+                <div class="book-card">
+                    <h3><%= book.title %></h3>
+                    <p ><strong>Author:</strong> <%= book.author %></p>
+                    <p><strong>Genre:</strong> <%= book.genre %></p>
+                    <p><strong>Pages:</strong> <%= book.pages %></p>
+                    <a href="/books/<%= book.id %>" class="details-btn">View Details</a>
+                </div>
+            <% }) %>
+        </div>
+
+    </main>
+
+</body>
+</html>
