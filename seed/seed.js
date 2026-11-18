@@ -21,7 +21,6 @@ async function run() {
 
     // Insert new book data from bookInfo array
     const insertedBooks = await Book.insertMany(bookInfo);
-    console.log(`${insertedBooks.length} books inserted successfully.`);
   } finally {
     // Ensures that the client will close when you finish/error
     await mongoose.disconnect();

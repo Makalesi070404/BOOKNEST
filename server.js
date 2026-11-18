@@ -5,15 +5,12 @@ import methodOverride from 'method-override'
 // import { title } from 'node:process'
 
 import mongoose from 'mongoose'
-import dotenv from 'dotenv'
 
 import Book from './models/Book.js'
 
-dotenv.config();
 
 const PORT = 5000
 
-console.log(bookInfo);
 
 
 const app = express()
