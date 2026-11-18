@@ -12,7 +12,6 @@ import Book from './models/Book.js'
 const PORT = 5000
 
 
-
 const app = express()
 
 
@@ -29,6 +28,7 @@ app.use(methodOverride('_method'))
 app.set('view engine', 'ejs')
 
 const uri = process.env.MONGO_URI
+console.log(uri)
 const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
 async function run() {
   try {
