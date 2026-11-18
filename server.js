@@ -34,7 +34,7 @@ const clientOptions = { serverApi: { version: '1', strict: true, deprecationErro
 // Connect to MongoDB, then start the server
 async function mongoConnection() {
   try {
-    console.log(uri);
+    // console.log(uri);
     await mongoose.connect(uri, clientOptions);
     console.log("Connected to MongoDB!");
  
