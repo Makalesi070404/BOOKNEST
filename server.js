@@ -27,21 +27,27 @@ app.use(methodOverride('_method'))
 // Set EJS as the template engine for the server
 app.set('view engine', 'ejs')
 
-const uri = process.env.MONGO_URI
-console.log(uri)
+const uri = process.env.MONGO_URI; // use the correct URI
 const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
-async function run() {
+
+ 
+// Connect to MongoDB, then start the server
+async function mongoConnection() {
   try {
-    // Create a Mongoose client with a MongoClientOptions object to set the Stable API version
+    console.log(uri);
     await mongoose.connect(uri, clientOptions);
-    // await mongoose.connection.db.admin().command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    // await mongoose.disconnect();
+    console.log("Connected to MongoDB!");
+ 
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+      console.log(`Server running on http://localhost:${PORT}`);
+    });
+  } catch (err) {
+    console.error("Failed to connect to MongoDB:", err);
+    process.exit(1);
   }
 }
-run().catch(console.dir);
+mongoConnection();
 
 // Home Page Route
 // HOME PAGE
@@ -138,8 +144,4 @@ app.use((req, res) => {
     res.status(404).render('not-found', { title: 'Page Not Found' });
 });
 
-
-app.listen(PORT, () => {
-    console.log(`Listening on port http://localhost:${PORT}`);
-})
 

@@ -21,7 +21,6 @@ EJS — template engine
 
 Method‑Override — enables PUT & DELETE in forms
 
-Dotenv — loads environment variables
 
 # Installation
 Install dependencies:
@@ -29,7 +28,6 @@ Install dependencies:
 -npm i ejs
 -npm install mongoose
 -npm install method-override
--npm install dotenv
 
 Initialize the project:
 npm init -y && npm pkg set type=module
